@@ -17,8 +17,9 @@ Both elements are plain vanilla js.
 
 ## Viewing Documentation and demo
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+Serve the carousel element locally.
 
 ```
+$ npm install
 $ polymer serve
 ```
