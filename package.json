@@ -1,0 +1,25 @@
+{
+  "name": "item-carousel",
+  "description": "Carousel looping large item lists horizontal including lazy image loading.",
+  "main": "item-carousel.html",
+  "repository": "marksmits/item-carousel",
+  "keywords": [
+    "carousel",
+    "item-carousel",
+    "web-components",
+    "web-component"
+  ],
+  "author": "Mark Smits",
+  "devDependencies": {
+    "bower": "latest",
+    "eslint": "^4.11.0",
+    "eslint-config-exmg": "latest",
+    "eslint-plugin-html": "^3.0.0",
+    "polymer-cli": "^1.2.0"
+  },
+  "homepage": "https://github.com/marksmits",
+  "scripts": {
+    "eslint": "eslint . --ext js,html --ignore-path .gitignore",
+    "analyze": "polymer analyze > analysis.json"
+  }
+}

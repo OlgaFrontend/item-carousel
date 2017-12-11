@@ -1,0 +1,80 @@
+<script>
+  const lzIo = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.setAttribute('inview', '');
+      }
+    }
+  });
+
+  /**
+   * The `<img-lazy>` element is loading the image when the element enters the
+   * viewport. it uses Intersection Observer for detecting if the element enters
+   * the viewport.
+   *
+   * Please make sure to load the [polyfill](https://github.com/w3c/IntersectionObserver) when needed.
+   *
+   * ```html
+   *  <img-lazy srcUrl="images/logo.svg"></img-lazy>
+   * ```
+   *
+   * @customElement
+   * @demo demo/index.html
+   */
+  class ImgLazy extends HTMLElement {
+    static get observedAttributes() {
+      return ['inview'];
+    }
+
+    constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+      this.shadowRoot.innerHTML = `
+        <style>
+          :host{
+            display: block;
+            width: 100%;
+          }
+          img {
+            width: 100%;
+            animation-name: fade-in;
+            animation-duration: 2s;
+          }
+          @keyframes fade-in {
+            from {opacity: 0}
+          }
+        </style>
+      `;
+    }
+
+    connectedCallback() {
+      lzIo.observe(this);
+    }
+
+    disconnectedCallback() {
+      lzIo.unobserve(this);
+    }
+
+    get inview() {
+      return this.hasAttribute('inview');
+    }
+
+    get srcUrl() {
+      return this.getAttribute('srcUrl');
+    }
+
+    attributeChangedCallback() {
+      if (this.loaded) {
+        return;
+      }
+      const img = document.createElement('img');
+      img.src = this.srcUrl;
+      img.onload = () => {
+        this.loaded = true;
+        this.shadowRoot.appendChild(img);
+      };
+    }
+  }
+
+  customElements.define('img-lazy', ImgLazy);
+</script>

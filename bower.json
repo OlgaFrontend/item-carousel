@@ -1,0 +1,11 @@
+{
+  "name": "item-carousel",
+  "main": "item-carousel.html",
+  "devDependencies": {
+    "iron-component-page": "^3.0.1"
+  },
+  "license": "MIT License",
+  "resolutions": {
+    "polymer": "^2.0.0"
+  }
+}

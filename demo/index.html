@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>item-carousel demo</title>
+    <link rel="import" href="../item-carousel.html">
+    <link rel="import" href="../img-lazy.html">
+
+    <style>
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        vertical-align: middle;
+        text-align: center;
+        min-height: 8rem;
+        position: relative;
+      }
+
+      .item img-lazy {
+        width: 4rem;
+        margin: .5rem 1.5rem;
+        align-self: center;
+        vertical-align: middle;
+      }
+
+      .item.wide img-lazy {
+        width: 5rem;
+      }
+
+      .item span {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 0.8rem;
+        color: #999;
+      }
+
+      .container {
+        width: 500px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+      <h3>item-carousel demo</h3>
+      <div class="container">
+        <item-carousel>
+          <div class="item"><img-lazy srcUrl="images/Ant1.svg"></img-lazy><span>Ant 1</span></div>
+          <div class="item"><img-lazy srcUrl="images/CBC.svg"></img-lazy><span>CBC</span></div>
+          <div class="item wide"><img-lazy srcUrl="images/FOX.svg"></img-lazy><span>Fox</span></div>
+          <div class="item"><img-lazy srcUrl="images/Globo.svg"></img-lazy><span>Globo</span></div>
+          <div class="item"><img-lazy srcUrl="images/Nine.svg"></img-lazy><span>Nine</span></div>
+          <div class="item wide"><img-lazy srcUrl="images/TF1.svg"></img-lazy><span>TF1</span></div>
+          <div class="item wide"><img-lazy srcUrl="images/vtm.svg"></img-lazy><span>VTM</span></div>
+          <div class="item"><img-lazy srcUrl="images/RTP.svg"></img-lazy><span>RTP</span></div>
+          <div class="item wide"><img-lazy srcUrl="images/ProTV.svg"></img-lazy><span>Pro TV</span></div>
+        </item-carousel>
+      </div>
+    </div>
+  </body>
+</html>
